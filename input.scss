@@ -1,0 +1,27 @@
+#to_scratch {
+    background-image: url('images/fille.jpg');
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Utilisez "1fr" au lieu de "lfr" */
+    grid-template-rows: repeat(10, 1fr); /* Utilisez "1fr" au lieu de "lfr" */
+  }
+  
+  #to_scratch div {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond des divs (blanc avec une opacité de 0.8) */
+    transition: background-color 0.3s ease;
+  }
+  
+  .p-abs-100 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Placez l'image en arrière-plan en utilisant un indice z inférieur à 0 */
+    object-fit: cover;
+  }
+  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demonstration of sass potential</title>
+  <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="p-abs-100">
+      <img src="images/fille.jpg" />
+    </div>
+    <div id="to_scratch"></div>
+  </div>
+  <script>
+    const parent = document.querySelector('#to_scratch');
+
+    function getColor(index) {
+      const startColor = [255, 0, 0];
+      const endColor = [255, 128, 128];
+      const step = (index + 1) / 100;
+
+      const color = startColor.map((channel, i) =>
+        Math.round(channel + step * (endColor[i] - channel))
+      );
+
+      return `rgb(${color.join(',')})`;
+    }
+
+    for (let i = 0; i < 100; i++) {
+      const node = document.createElement('div');
+      node.style.backgroundColor = getColor(i);
+      parent.appendChild(node);
+
+      node.addEventListener('mouseover', () => {
+        node.style.opacity = 0;
+      });
+
+      node.addEventListener('mouseout', () => {
+        node.style.opacity = 1;
+      });
+    }
+  </script>
+</body>
+
+</html>
